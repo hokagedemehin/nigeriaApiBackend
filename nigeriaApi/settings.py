@@ -159,9 +159,9 @@ MEDIA_ROOT = BASE_DIR / "nigeriastatic" / "media"
 ###############################################################
 
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-GS_BUCKET_NAME = 'nigeria-api-bucket'
+GS_BUCKET_NAME = os.environ['GS_BUCKET_NAME']
 STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-GS_LOCATION = "nigeriastatic"
+GS_LOCATION = os.environ['GS_LOCATION']
 # https://storage.cloud.google.com/nigeria-api-bucket/media/Capture.PNG
 MEDIA_URL = f"https://storage.cloud.google.com/{GS_BUCKET_NAME}/media/"
 STATIC_URL = f"https://storage.cloud.google.com/{GS_BUCKET_NAME}/static/"
@@ -183,7 +183,7 @@ credentials={
 
 # print(credentials)
 GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
-    os.path.join(BASE_DIR, 'credential.json')
+    os.path.join(BASE_DIR, 'google-credentials.json')
     # credentials
     # os.path.join(BASE_DIR, os.environ['credentials'])
 )

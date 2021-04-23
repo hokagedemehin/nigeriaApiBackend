@@ -13,6 +13,7 @@ django-cors-headers = "*"
 django-storages = {extras = ["google"], version = "*"}
 gunicorn = "*"
 psycopg2 = "*"
+django-heroku = "*"
 
 [dev-packages]
 
